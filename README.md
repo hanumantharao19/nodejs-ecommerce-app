@@ -224,4 +224,200 @@ This project can be extended to practise:
 - The application does not include a database, authentication, payment processing, or persistent order management.
 - Product images and Google Fonts require an internet connection.
 
+10. Run the Application Using Docker
 
+This section explains how to clone the GitHub repository, build a Docker image, run the application in a container, and access the website locally.
+
+Prerequisites
+
+Install the following tools:
+
+Git
+
+Docker Desktop or Docker Engine
+
+Verify the installations:
+
+git --version
+docker --version
+docker info
+
+Ensure Docker is running before continuing.
+
+Step 1: Clone the GitHub Repository
+
+Clone the project to your local machine.
+
+git clone https://github.com/YOUR_USERNAME/nodejs-ecommerce-app.git
+
+Navigate to the project directory:
+
+cd nodejs-ecommerce-app
+
+Replace YOUR_USERNAME with your GitHub username and use the actual repository URL.
+
+Step 2: Review the Docker Files
+
+Ensure the project contains the following files:
+
+nodejs-ecommerce-app/
+├── public/
+│   ├── index.html
+│   ├── style.css
+│   └── app.js
+├── server.js
+├── package.json
+├── package-lock.json
+├── Dockerfile
+├── .dockerignore
+└── README.md
+
+The Dockerfile contains the instructions to build the image, while .dockerignore excludes unnecessary files from the Docker build context.
+
+Step 3: Build the Docker Image
+
+Run the following command from the project root directory:
+
+docker build -t nodejs-ecommerce-app:1.0 .
+
+Explanation:
+
+docker build builds an image from the Dockerfile.
+
+-t nodejs-ecommerce-app:1.0 assigns the image name and tag.
+
+. specifies the current directory as the build context.
+
+Step 4: Verify the Docker Image
+
+docker images
+
+You should see an image named nodejs-ecommerce-app with the tag 1.0.
+
+Step 5: Run the Docker Container
+
+Start the application in a container:
+
+docker run -d \
+  --name nodejs-ecommerce-container \
+  -p 3000:3000 \
+  nodejs-ecommerce-app:1.0
+
+Explanation:
+
+-d runs the container in the background.
+
+--name assigns a name to the container.
+
+-p 3000:3000 maps host port 3000 to container port 3000.
+
+nodejs-ecommerce-app:1.0 specifies the image to run.
+
+Step 6: Access the Application
+
+Open a browser and visit:
+
+Website: http://localhost:3000
+
+You can also test the application APIs:
+
+URL
+
+Purpose
+
+http://localhost:3000
+
+Displays the e-commerce website
+
+http://localhost:3000/api/products
+
+Returns the product list in JSON format
+
+http://localhost:3000/api/health
+
+Checks the application's health endpoint
+
+Make sure host port 3000 is available. If the application is already running directly on your machine, stop it before starting the container with this port mapping.
+
+Step 7: Verify the Running Container
+
+List running containers:
+
+docker ps
+
+View application logs:
+
+docker logs nodejs-ecommerce-container
+
+Follow logs in real time:
+
+docker logs -f nodejs-ecommerce-container
+
+Step 8: Stop and Remove the Container
+
+Stop the running container:
+
+docker stop nodejs-ecommerce-container
+
+Remove the stopped container:
+
+docker rm nodejs-ecommerce-container
+
+Remove the image if it is no longer needed:
+
+docker rmi nodejs-ecommerce-app:1.0
+
+Step 9: Rebuild the Image After Code Changes
+
+If you modify the application source code, rebuild the image:
+
+docker build -t nodejs-ecommerce-app:1.0 .
+
+Remove the existing container and start a new one using the updated image:
+
+docker rm -f nodejs-ecommerce-container
+
+docker run -d \
+  --name nodejs-ecommerce-container \
+  -p 3000:3000 \
+  nodejs-ecommerce-app:1.0
+
+Docker Workflow Summary
+
+GitHub Repository
+        |
+        v
+Clone Repository
+        |
+        v
+docker build
+        |
+        v
+Docker Image
+        |
+        v
+docker run
+        |
+        v
+Docker Container
+        |
+        v
+http://localhost:3000
+
+Learning Outcomes
+
+By completing this exercise, you will learn how to:
+
+Clone source code from GitHub.
+
+Create a Docker image using a Dockerfile.
+
+Understand Docker images and containers.
+
+Map container ports to host ports.
+
+Inspect container logs and troubleshoot issues.
+
+Rebuild and run containers after application changes.
+
+Next step: Push the Docker image to GitHub Container Registry (GHCR) and automate the build and publishing process using GitHub Actions.
