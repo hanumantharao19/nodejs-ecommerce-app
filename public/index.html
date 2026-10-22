@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover everyday essentials at Product Store.">
+  <title>Maison Market | Product Store</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="announcement">
+    FREE SHIPPING ON ORDERS ABOVE ₹2,999
+  </div>
+
+  <header class="header">
+    <a href="/" class="logo"><span>M.</span> MAISON MARKET</a>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#shop">Shop</a>
+      <a href="#about">Our Story</a>
+    </nav>
+
+    <button class="cart-button" id="cartButton">
+      Shopping Bag <span id="cartCount">0</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <p class="eyebrow">THE EVERYDAY COLLECTION</p>
+        <h1>Find your<br><em>everyday favourite.</em></h1>
+        <p class="hero-description">
+          Thoughtfully selected essentials that bring
+          quality, simplicity and style into everyday life.
+        </p>
+        <a href="#shop" class="primary-button">Explore Collection ↗</a>
+      </div>
+      <div class="hero-image">
+        <img
+          src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=85"
+          alt="Modern fashion and lifestyle store"
+        >
+      </div>
+    </section>
+
+    <section class="shop section" id="shop">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">CURATED FOR YOU</p>
+          <h2>Shop the collection</h2>
+          <p class="muted">Everyday essentials. Exceptional details.</p>
+        </div>
+        <div class="search-box">
+          <input id="searchInput" type="search"
+            placeholder="Search products..." aria-label="Search products">
+        </div>
+      </div>
+
+      <div class="categories" id="categories">
+        <button class="category active" data-category="All">All products</button>
+        <button class="category" data-category="Bags">Bags</button>
+        <button class="category" data-category="Accessories">Accessories</button>
+        <button class="category" data-category="Footwear">Footwear</button>
+      </div>
+
+      <p class="results-text" id="resultsText">Loading products...</p>
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <section class="story" id="about">
+      <p class="eyebrow">OUR PHILOSOPHY</p>
+      <h2>Buy less. Choose well.<br><em>Enjoy what you own.</em></h2>
+      <p>We believe everyday products should be useful, beautiful and made to be enjoyed.</p>
+      <a href="#shop" class="light-button">Find your favourite ↗</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a href="/" class="logo"><span>M.</span> MAISON MARKET</a>
+    <p>Thoughtful products for everyday living.</p>
+    <p>© 2026 Maison Market · Training Demo</p>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
+

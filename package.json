@@ -1,0 +1,14 @@
+{
+  "name": "nodejs-ecommerce-app",
+  "version": "1.0.0",
+  "description": "Sample Node.js e-commerce application for DevOps training",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
+
